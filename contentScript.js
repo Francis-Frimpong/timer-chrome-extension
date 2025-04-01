@@ -11,7 +11,16 @@ play.addEventListener('click', () => {
             second.value ="59";
             munite.value--
         }
+      
         second.value--
 
     }, 1000)
 })
+
+
+
+// if(second.value === "0" && munite.value === "0"){
+//     clearInterval()
+//     second.value === "0";
+//     munite.value === "0";
+// }
