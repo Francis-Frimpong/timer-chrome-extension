@@ -1,26 +1,44 @@
 let hour =  document.querySelector('.hour')
-let munite =  document.querySelector('.minute')
+let minute =  document.querySelector('.minute')
 let second =  document.querySelector('.second')
 const play = document.querySelector('.fa-play')
+const reset = document.querySelector('.fa-rotate-right')
 
 
-play.addEventListener('click', () => {
+function stopTimer(){
+    clearInterval(timer)
+}
 
-    setInterval(() => {
-        if(second.value === "0"){
+
+
+function timer(){
+   let timer =  setInterval(() => {
+        if(hour > "0" && minute.value === "0" && second.value === "0"){
             second.value ="59";
-            munite.value--
-        }
+            minute.value = "59";
+            minute.value--
+            hour.value--;
+        } 
+
+        
       
-        second.value--
-
+        // if(hour.value === "0" && minute.value === "0" && second.value === "0"){
+        //     clearInterval(timer)
+        // }
+        second.value--;
     }, 1000)
-})
+}
+
+function resetTimer(){
+    hour.value = '0'
+    munite.value = '0'
+    second.value = '0'
+    clearInterval(timer)
+}
 
 
 
-// if(second.value === "0" && munite.value === "0"){
-//     clearInterval()
-//     second.value === "0";
-//     munite.value === "0";
-// }
+play.addEventListener('click', timer)
+reset.addEventListener('click', resetTimer)
+
+
