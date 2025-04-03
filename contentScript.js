@@ -25,9 +25,6 @@ function timer(){
             hour.value--;
         } 
         else if (hour.value === "0" && minute.value === "0" && second.value === "0"){
-            hour.value = "0";
-            minute.value = "0";
-            second.value = "0";
             clearInterval(timer)
         }
 
