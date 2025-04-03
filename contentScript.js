@@ -14,21 +14,35 @@ function stopTimer(){
 //continue to debug timer function tomorrow
 function timer(){
    let timer =  setInterval(() => {
-        if(hour.value > "0" && minute.value !== "0" && second.value === "0"){
-            second.value ="60";
-            minute.value--
+
+    let hours = Number(hour.value)
+    let minutes = Number(minute.value)
+    let seconds = Number(second.value)
+        if(hours > 0 && minutes !== 0 && seconds === 0){
+            second.value ="59";
+            minute.value = String(minutes - 1)
         } 
-        else if(hour.value > "0" && minute.value === "0" && second.value === "0"){
-            second.value ="60";
-            minute.value = "60"
-            minute.value--;
-            hour.value--;
+        else if(hours > 0 && minutes === 0 && seconds === 0){
+            second.value ="59";
+            minute.value = "59"
+            minute.value = String(minutes - 1);
+            hour.value = String(hours - 1);
         } 
-        else if (hour.value === "0" && minute.value === "0" && second.value === "0"){
+        else if(hour === 0 ){
+            second.value ="59";
+            minute.value = "59";
+
+        }
+        else if(minute === 0){
+            second.value = "59";
+        }
+        else if (hours === 0 && minutes === 0 && seconds === 0){
             clearInterval(timer)
         }
+        else{
+            second.value = String(seconds - 1);
+        }
 
-        second.value--;
     }, 1000)
 }
 
