@@ -5,6 +5,7 @@ const play = document.querySelector('.fa-play')
 const reset = document.querySelector('.fa-rotate-right')
 
 
+
 function stopTimer(){
     clearInterval(timer)
 }
@@ -16,18 +17,20 @@ function timer(){
         if(hour.value > "0" && minute.value !== "0" && second.value === "0"){
             second.value ="60";
             minute.value--
-        } else if(hour.value > "0" && minute.value === "0" && second.value === "0"){
+        } 
+        else if(hour.value > "0" && minute.value === "0" && second.value === "0"){
             second.value ="60";
             minute.value = "60"
-            minute.value--
+            minute.value--;
             hour.value--;
+        } 
+        else if (hour.value === "0" && minute.value === "0" && second.value === "0"){
+            hour.value = "0";
+            minute.value = "0";
+            second.value = "0";
+            clearInterval(timer)
         }
 
-        
-      
-        // if(hour.value === "0" && minute.value === "0" && second.value === "0"){
-        //     clearInterval(timer)
-        // }
         second.value--;
     }, 1000)
 }
