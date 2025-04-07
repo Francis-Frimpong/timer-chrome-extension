@@ -12,6 +12,17 @@ let timer;
         let minutes = minute.value 
         let seconds = second.value 
         timer =  setInterval(() => {
+            if (hours > 99 || minutes > 59 || seconds > 59) {
+                hours = 0;
+                hour.value = hours;
+                minutes = 0;
+                minute.value = minutes;
+                seconds = 0
+                second.value = seconds
+                clearInterval(timer);
+                return
+            }
+
             if(hours > 0 && minutes == 0 && seconds == 0 ){
                 seconds = 60;
                 minutes = 59;
