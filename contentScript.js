@@ -30,44 +30,35 @@ function stopTimer(){
 
 
 
+    
+   
+    
+    function countDown(){
+       let hours = Number(hour.value) 
+       let minutes = Number(minute.value) 
+       let seconds = Number(second.value) 
+        let timer =  setInterval(() => {
+            if(seconds < 0 ){
+                seconds = 59;
+                minutes = 59;
+            } 
 
+            if (seconds === 0){
+                 minutes = Number(minute.value) - 1;
+            }
 
-function timer(){
-   let timer =  setInterval(() => {
+           
+            
+           
 
-    let hours = Number(hour.value)
-    let minutes = Number(minute.value)
-    let seconds = Number(second.value)
+            minute.value = String(minutes)
+            second.value = String(seconds--)
+        }, 1000)
+    
+    
 
-        if(hours > 0 && minutes !== 0 && seconds === 0){
-            second.value ="59";
-            minute.value = String(minutes - 1)
-        } 
-      
-        else if(hours > 0 && minutes === 0 && seconds === 0){
-            // second.value ="59";
-            minute.value = "59"
-            hour.value = String(hours - 1);
-        } 
-        else if(hours === 0 ){
-            hour.value = String(hours = 0)
-            // second.value ="59";
-            minute.value = "59";
-
-        }
-        else if(minutes === 0){
-            minute.value = String(minutes = 0)
-            // second.value = "59";
-        }
-        // else if (seconds === 0){
-        //     clearInterval(timer)
-        // }
-        else{
-            second.value = String(seconds - 1);
-        }
-
-    }, 1000)
 }
+
 
 function resetTimer(){
     hour.value = '0'
@@ -78,7 +69,7 @@ function resetTimer(){
 
 
 
-play.addEventListener('click', timer)
+play.addEventListener('click', countDown)
 reset.addEventListener('click', resetTimer)
 
 
