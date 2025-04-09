@@ -4,6 +4,7 @@ let second =  document.querySelector('.second')
 const play = document.querySelector('.fa-play')
 const pause = document.querySelector('.fa-pause')
 const reset = document.querySelector('.fa-rotate-right')
+const audio = new Audio('audio/bedside-clock-alarm-95792.mp3')
     
 let timer;
     
@@ -37,6 +38,8 @@ let timer;
             }
             
             if (hours == 0 && minutes == 0 && seconds == 0){
+                audio.loop = true;
+                audio.play();
                 clearInterval(timer);
                 return
             }
@@ -53,6 +56,7 @@ let timer;
         hour.value = '0'
         minute.value = '0'
         second.value = '0'
+        audio.pause()
         clearInterval(timer)
         return
     }
