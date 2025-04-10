@@ -67,3 +67,6 @@ h4{
     cursor: pointer;
 }
 
+.active{
+    color: rgb(247, 94, 132);
+}

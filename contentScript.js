@@ -64,13 +64,23 @@ let timer;
     function pauseTimer(){
         clearInterval(timer)
     }
+ const tabLink = document.querySelectorAll('.tabLinks');
+
+ const navContainer = document.querySelector('.bottomNav');
 
 
-    function add(){
-        console.log(1 + 2);
+ //figure out how this function and solve the bug.
+navContainer.addEventListener('click', (e) => {
+    tabLink.forEach((tab) => {
+
+        if(e.target.classList.contains('tabLinks')){
+            tab.classList.add('active')
+        }
+    })
+    if(e.classList.contains('active')){
+        e.classList.remove('active');
     }
-
-
+})
 
 play.addEventListener('click', countDown);
 reset.addEventListener('click', resetTimer);
