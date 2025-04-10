@@ -66,6 +66,11 @@ let timer;
     }
 
 
+    function add(){
+        console.log(1 + 2);
+    }
+
+
 
 play.addEventListener('click', countDown);
 reset.addEventListener('click', resetTimer);
