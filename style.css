@@ -70,3 +70,12 @@ h4{
 .active{
     color: rgb(247, 94, 132);
 }
+
+.displayContent{
+    display: block;
+}
+
+.hideContent{
+    display: none;
+}
+

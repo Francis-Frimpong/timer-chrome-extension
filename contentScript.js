@@ -67,21 +67,19 @@ let timer;
  const tabLink = document.querySelectorAll('.tabLinks');
 
  const navContainer = document.querySelector('.bottomNav');
-
-
  
 navContainer.addEventListener('click', (e) => {
 
-    tabLink.forEach((tab) => {
-        e.target === tab ? e.target.classList.add('active'):tab.classList.remove('active');
-        // if(e.target === tab){
-        //     e.target.classList.add('active')
-        // } else {
-        //     tab.classList.remove('active');
+        tabLink.forEach((tab) => {
+           
+            if(e.target === tab){
+                e.target.classList.add('active')
+            } else {
+                tab.classList.remove('active');
 
-        // }
+            }
 
-})
+    })
     
 })
 
@@ -90,5 +88,12 @@ reset.addEventListener('click', resetTimer);
 pause.addEventListener('click', pauseTimer);
 
 
+const listA = [1,2,3]
+const listB = ['A','B','C']
+listB.forEach((letter, index) => {
+    console.log(`${letter}:${listA[index]}`);
+
+})
+    
 
 
