@@ -69,17 +69,20 @@ let timer;
  const navContainer = document.querySelector('.bottomNav');
 
 
- //figure out how this function and solve the bug.
+ 
 navContainer.addEventListener('click', (e) => {
-    tabLink.forEach((tab) => {
 
-        if(e.target.classList.contains('tabLinks')){
-            tab.classList.add('active')
-        }
-    })
-    if(e.classList.contains('active')){
-        e.classList.remove('active');
-    }
+    tabLink.forEach((tab) => {
+        e.target === tab ? e.target.classList.add('active'):tab.classList.remove('active');
+        // if(e.target === tab){
+        //     e.target.classList.add('active')
+        // } else {
+        //     tab.classList.remove('active');
+
+        // }
+
+})
+    
 })
 
 play.addEventListener('click', countDown);
