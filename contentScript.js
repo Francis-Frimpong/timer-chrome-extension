@@ -70,9 +70,10 @@ let timer;
  const navContainer = document.querySelector('.bottomNav');
 
  // Creating input element function
- function input(el,className, inputType, inputValue){
+ function input(el,className, className1, inputType, inputValue){
     let input = document.createElement(el)
     input.classList.add(className)
+    input.classList.add(className1)
     input.type = inputType
     input.value = inputValue
     return input;
@@ -145,9 +146,9 @@ navContainer.addEventListener('click', (e) => {
         let timers = document.createElement('div')
         timers.classList.add('timers')
         // Creating the input field for hour, minute and second
-        const hourInput = input('input','hour','text','0')
-        const minuteInput = input('input','minute','text','0')
-        const secondInput = input('input','second','text','0')
+        const hourInput = input('input','hour','styleValue','text','0')
+        const minuteInput = input('input','minute','styleValue','text','0')
+        const secondInput = input('input','second', 'styleValue','text','0')
         timers.appendChild(hourInput)
         timers.appendChild(minuteInput)
         timers.appendChild(secondInput)
@@ -167,7 +168,14 @@ navContainer.addEventListener('click', (e) => {
         container.appendChild(timerContainer);
         timerContainer.appendChild(timers);
         timerContainer.appendChild(controllersIcon);
+
+
+        play.addEventListener('click', countDown);
+        reset.addEventListener('click', resetTimer);
+        pause.addEventListener('click', pauseTimer);
     }
+
+
 
     
 })
