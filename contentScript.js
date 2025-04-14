@@ -81,7 +81,13 @@ navContainer.addEventListener('click', (e) => {
 
     })
 
+    // Inserting new element based on a specific tab clicked
     if (e.target === tabLink[1]){
+        //get access to the container
+        let container = document.querySelector('.container')
+
+        container.innerHTML = ""; //clear or empty the container
+        //create a new div element
         const stopWatch = document.createElement("div");
         stopWatch.classList.add('stopWatchContainer')
 
@@ -90,13 +96,47 @@ navContainer.addEventListener('click', (e) => {
                 <h3 class="minute">0</h3>
                 <h3 class="second">0</h3>
         `;
-        document.querySelector('.container').appendChild(stopWatch);
+        container.appendChild(stopWatch);
 
     }else if (e.target === tabLink[2]){
-        console.log('tab 2');
+          //get access to the container
+          let container = document.querySelector('.container')
+
+          container.innerHTML = ""; //clear or empty the container
+          //create a new div element
+          const stopWatch = document.createElement("div");
+          stopWatch.classList.add('stopWatchContainer')
+  
+          stopWatch.innerHTML = `
+                  <h3 class="hour">0</h3>
+                  <h3 class="minute">0</h3>
+                  <h3 class="second">0</h3>
+          `;
+          container.appendChild(stopWatch);
     }
     else {
-        console.log('default tab');
+          //get access to the container
+        let container = document.querySelector('.container')
+
+        container.innerHTML = ""; //clear or empty the container
+        //create a new div element
+        const timer = document.createElement("div");
+        timer.classList.add('timerContainer')
+
+        timer.innerHTML = `
+            <div class="timers">
+                <input type="text" value="0" class="hour">
+                <input type="text" value="0" class="minute">
+                <input type="text" value="0" class="second">
+            </div>
+    
+            <div class="icons">
+                <i class="fa-solid fa-play"></i>
+                <i class="fa-solid fa-pause"></i>
+                <i class="fa-solid fa-rotate-right"></i>
+            </div>
+        `;
+        container.appendChild(timer);
     }
 
     

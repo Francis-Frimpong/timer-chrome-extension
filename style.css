@@ -1,7 +1,7 @@
 .container{
     width: 400px;
 }
-#timerContainer{
+.timerContainer{
     display: flex;
     flex-direction: column;
     max-width: 600px;
@@ -23,7 +23,7 @@ input[value]{
     font-weight: 700;
 }
 
-#timerContainer .timers{
+.timerContainer .timers{
     display: flex;
     flex-direction: row;
     justify-content: center;
