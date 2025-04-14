@@ -168,16 +168,8 @@ navContainer.addEventListener('click', (e) => {
         container.appendChild(timerContainer);
         timerContainer.appendChild(timers);
         timerContainer.appendChild(controllersIcon);
-
-
-        play.addEventListener('click', countDown);
-        reset.addEventListener('click', resetTimer);
-        pause.addEventListener('click', pauseTimer);
     }
-
-
-
-    
+     
 })
 
 play.addEventListener('click', countDown);
