@@ -71,16 +71,34 @@ let timer;
  
 navContainer.addEventListener('click', (e) => {
 
+    //Active tab functionality
         tabLink.forEach((tab) => {
-           
             if(e.target === tab){
                 e.target.classList.add('active')
             } else {
                 tab.classList.remove('active');
-
             }
 
     })
+
+    if (e.target === tabLink[1]){
+        const stopWatch = document.createElement("div");
+        stopWatch.classList.add('stopWatchContainer')
+
+        stopWatch.innerHTML = `
+                <h3 class="hour">0</h3>
+                <h3 class="minute">0</h3>
+                <h3 class="second">0</h3>
+        `;
+        document.querySelector('.container').appendChild(stopWatch);
+
+    }else if (e.target === tabLink[2]){
+        console.log('tab 2');
+    }
+    else {
+        console.log('default tab');
+    }
+
     
 })
 
@@ -89,12 +107,12 @@ reset.addEventListener('click', resetTimer);
 pause.addEventListener('click', pauseTimer);
 
 
-const listA = [1,2,3]
-const listB = ['A','B','C']
-listB.forEach((letter, index) => {
-    console.log(`${letter}:${listA[index]}`);
+// const listA = [1,2,3]
+// const listB = ['A','B','C']
+// listB.forEach((letter, index) => {
+//     console.log(`${letter}:${listA[index]}`);
 
-})
+// })
     
 
 

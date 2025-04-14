@@ -71,3 +71,14 @@ h4{
     color: rgb(247, 94, 132);
 }
 
+.stopWatchContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.minute{
+    margin: 0 .5em;
+}
+
