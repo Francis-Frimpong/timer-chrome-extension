@@ -68,6 +68,24 @@ let timer;
  const tabLink = document.querySelectorAll('.tabLinks');
 
  const navContainer = document.querySelector('.bottomNav');
+
+ // Creating input element function
+ function input(el,className, inputType, inputValue){
+    let input = document.createElement(el)
+    input.classList.add(className)
+    input.type = inputType
+    input.value = inputValue
+    return input;
+ }
+
+ // Creating icon element function
+ function icon(el,className1, className2) {
+    let icon = document.createElement(el)
+    icon.classList.add(className1)
+    icon.classList.add(className2)
+    return icon
+ }
+
  
 navContainer.addEventListener('click', (e) => {
 
@@ -120,23 +138,35 @@ navContainer.addEventListener('click', (e) => {
 
         container.innerHTML = ""; //clear or empty the container
         //create a new div element
-        const timer = document.createElement("div");
-        timer.classList.add('timerContainer')
+        const timerContainer = document.createElement("div");
+        timerContainer.classList.add('timerContainer')
+        
+        // Creating the timers div
+        let timers = document.createElement('div')
+        timers.classList.add('timers')
+        // Creating the input field for hour, minute and second
+        const hourInput = input('input','hour','text','0')
+        const minuteInput = input('input','minute','text','0')
+        const secondInput = input('input','second','text','0')
+        timers.appendChild(hourInput)
+        timers.appendChild(minuteInput)
+        timers.appendChild(secondInput)
+        timerContainer.appendChild(timers)
 
-        timer.innerHTML = `
-            <div class="timers">
-                <input type="text" value="0" class="hour">
-                <input type="text" value="0" class="minute">
-                <input type="text" value="0" class="second">
-            </div>
-    
-            <div class="icons">
-                <i class="fa-solid fa-play"></i>
-                <i class="fa-solid fa-pause"></i>
-                <i class="fa-solid fa-rotate-right"></i>
-            </div>
-        `;
-        container.appendChild(timer);
+        // Creating icons div
+        let controllersIcon = document.createElement('div')
+        controllersIcon.classList.add('icons')
+
+        const playIcon = icon('i', 'fa-solid' ,'fa-play')
+        const pauseIcon = icon('i', 'fa-solid' ,'fa-pause')
+        const resetIcon = icon('i', 'fa-solid' ,'fa-rotate-right')
+        controllersIcon.appendChild(playIcon)
+        controllersIcon.appendChild(pauseIcon)
+        controllersIcon.appendChild(resetIcon)
+
+        container.appendChild(timerContainer);
+        timerContainer.appendChild(timers);
+        timerContainer.appendChild(controllersIcon);
     }
 
     
