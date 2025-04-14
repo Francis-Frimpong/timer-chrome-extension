@@ -64,6 +64,7 @@ let timer;
     function pauseTimer(){
         clearInterval(timer)
     }
+
  const tabLink = document.querySelectorAll('.tabLinks');
 
  const navContainer = document.querySelector('.bottomNav');
