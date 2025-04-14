@@ -81,7 +81,7 @@ navContainer.addEventListener('click', (e) => {
 
     })
 
-    // Inserting new element based on a specific tab clicked
+    // Inserting new HTML element based on a specific tab clicked
     if (e.target === tabLink[1]){
         //get access to the container
         let container = document.querySelector('.container')
@@ -155,4 +155,8 @@ pause.addEventListener('click', pauseTimer);
 // })
     
 
-
+// Things to tackle for the day
+// Create new html element the proper way
+//Figure out how to access or mentain functionlity when new html element are inserted
+// Read about DOMContentLoader to see whether it can help with the functionality issue.
+// Add styling to unstyled html element
