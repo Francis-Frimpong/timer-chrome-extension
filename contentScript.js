@@ -110,11 +110,20 @@ navContainer.addEventListener('click', (e) => {
         const stopWatch = document.createElement("div");
         stopWatch.classList.add('stopWatchContainer')
 
-        stopWatch.innerHTML = `
-                <h3 class="hour">0</h3>
-                <h3 class="minute">0</h3>
-                <h3 class="second">0</h3>
-        `;
+        let hour = document.createElement('h3')
+        hour.classList.add('hour')
+        hour.textContent = '0';
+        let minute = document.createElement('h3')
+        minute.classList.add('minute')
+        minute.textContent = '0';
+        let second = document.createElement('h3')
+        second.classList.add('second')
+        second.textContent = '0';
+
+
+        stopWatch.appendChild(hour)
+        stopWatch.appendChild(minute)
+        stopWatch.appendChild(second)
         container.appendChild(stopWatch);
 
     }else if (e.target === tabLink[2]){
@@ -158,9 +167,11 @@ navContainer.addEventListener('click', (e) => {
         let controllersIcon = document.createElement('div')
         controllersIcon.classList.add('icons')
 
-        const playIcon = icon('i', 'fa-solid' ,'fa-play')
+        const playIcon = icon('i', 'fa-solid' ,'fa-play');
         const pauseIcon = icon('i', 'fa-solid' ,'fa-pause')
         const resetIcon = icon('i', 'fa-solid' ,'fa-rotate-right')
+
+        // adding eventListeners to the icons
         playIcon.addEventListener('click', countDown);
         pauseIcon.addEventListener('click', pauseTimer);
         resetIcon.addEventListener('click', resetTimer);
