@@ -75,7 +75,7 @@ let timer;
     input.classList.add(className)
     input.classList.add(className1)
     input.type = inputType
-    input.value = inputValue
+    input.setAttribute("value", inputValue);
     return input;
  }
 
@@ -161,6 +161,9 @@ navContainer.addEventListener('click', (e) => {
         const playIcon = icon('i', 'fa-solid' ,'fa-play')
         const pauseIcon = icon('i', 'fa-solid' ,'fa-pause')
         const resetIcon = icon('i', 'fa-solid' ,'fa-rotate-right')
+        playIcon.addEventListener('click', countDown);
+        pauseIcon.addEventListener('click', pauseTimer);
+        resetIcon.addEventListener('click', resetTimer);
         controllersIcon.appendChild(playIcon)
         controllersIcon.appendChild(pauseIcon)
         controllersIcon.appendChild(resetIcon)
@@ -168,6 +171,10 @@ navContainer.addEventListener('click', (e) => {
         container.appendChild(timerContainer);
         timerContainer.appendChild(timers);
         timerContainer.appendChild(controllersIcon);
+
+
+
+        
     }
      
 })
@@ -186,7 +193,6 @@ pause.addEventListener('click', pauseTimer);
     
 
 // Things to tackle for the day
-// Create new html element the proper way
 //Figure out how to access or mentain functionlity when new html element are inserted
 // Read about DOMContentLoader to see whether it can help with the functionality issue.
 // Add styling to unstyled html element
