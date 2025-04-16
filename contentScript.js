@@ -9,9 +9,12 @@ const audio = new Audio('audio/bedside-clock-alarm-95792.mp3')
 let timer;
     
     function countDown(){
+        play.classList.add('disabled');
         let hours = hour.value
         let minutes = minute.value 
         let seconds = second.value 
+
+        // figure out and fix the second counter bug
         timer =  setInterval(() => {
             if (hours > 99 || minutes > 59 || seconds > 59) {
                 hours = 0;
@@ -53,6 +56,7 @@ let timer;
     
     
     function resetTimer(){
+        play.classList.remove('disabled');
         hour.value = '0'
         minute.value = '0'
         second.value = '0'
@@ -201,6 +205,7 @@ navContainer.addEventListener('click', (e) => {
 
         let stopWatchCounter;
 
+        //Play
         function watch(){
             playIcon.classList.add('disabled')
             hour.textContent =  hourCount;
@@ -225,6 +230,7 @@ navContainer.addEventListener('click', (e) => {
             console.log('watch');
         }
 
+        //reset
         function watchReset(){
             playIcon.classList.remove('disabled')
             hourCount = 0;
@@ -278,6 +284,7 @@ navContainer.addEventListener('click', (e) => {
         let controllersIcon = document.createElement('div')
         controllersIcon.classList.add('icons')
 
+        //Creating the control icons
         const playIcon = icon('i', 'fa-solid' ,'fa-play');
         const pauseIcon = icon('i', 'fa-solid' ,'fa-pause')
         const resetIcon = icon('i', 'fa-solid' ,'fa-rotate-right')
@@ -297,7 +304,71 @@ navContainer.addEventListener('click', (e) => {
 
 
 
+        // let timer;
+    
+        // function countDown(){
+        //     play.classList.add('disabled');
+        //     let hours = hour.value
+        //     let minutes = minute.value 
+        //     let seconds = second.value 
+            
+        //     timer =  setInterval(() => {
+        //         if (hours > 99 || minutes > 59 || seconds > 59) {
+        //             hours = 0;
+        //             hour.value = hours;
+        //             minutes = 0;
+        //             minute.value = minutes;
+        //             seconds = 0
+        //             second.value = seconds
+        //             clearInterval(timer);
+        //             return
+        //         }
+
+        //         if(hours > 0 && minutes == 0 && seconds == 0 ){
+        //             seconds = 60;
+        //             minutes = 59;
+        //             hours--
+        //             hour.value = hours;
+        //         } 
+                
+        //         if (hours == 0 && minutes > 0 && seconds == 0){
+        //             seconds = 60;
+        //             minutes--
+        //             minute.value = minutes
+        //         }
+                
+        //         if (hours == 0 && minutes == 0 && seconds == 0){
+        //             audio.loop = true;
+        //             audio.play();
+        //             clearInterval(timer);
+        //             return
+        //         }
+                
+        //         minute.value = minutes
+        //         seconds--
+        //         second.value = seconds;
+        //     }, 1000)
+            
+        // }
         
+        
+        // function resetTimer(){
+        //     play.classList.remove('disabled');
+        //     hour.value = '0'
+        //     minute.value = '0'
+        //     second.value = '0'
+        //     audio.pause()
+        //     clearInterval(timer)
+        //     return
+        // }
+
+        // function pauseTimer(){
+        //     clearInterval(timer)
+        // }
+
+
+
+            
     }
      
 })
