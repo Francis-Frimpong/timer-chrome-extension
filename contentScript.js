@@ -172,10 +172,13 @@ navContainer.addEventListener('click', (e) => {
         second.classList.add('second')
         second.textContent = '0';
 
+        //Creating Controllers
         const controls = document.createElement('div');
         controls.classList.add('icons')
         const playIcon = icon('i', 'fa-solid' ,'fa-play');
         const resetIcon = icon('i', 'fa-solid' ,'fa-rotate-right')
+
+        //Adding eventListeners to controllers
         playIcon.addEventListener('click', watch);
         resetIcon.addEventListener('click', watchReset);
 
@@ -190,6 +193,8 @@ navContainer.addEventListener('click', (e) => {
         container.appendChild(controls)
 
 
+
+        // Stopwatch functionality after html element is dynamically injected with JS
         let hourCount = 0;
         let minuteCount = 0;
         let secondCount = 0
