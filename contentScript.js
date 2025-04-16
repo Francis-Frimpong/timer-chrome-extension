@@ -87,6 +87,58 @@ let timer;
     return icon
  }
 
+
+
+
+const watchHour = document.querySelector('.hour')
+const watchMinute = document.querySelector('.minute')
+const watchSecond= document.querySelector('.second')
+
+
+
+let hourCount = 0;
+let minuteCount = 0;
+let secondCount = 0
+
+let stopWatch;
+
+function watch(){
+
+    watchHour.textContent =  hourCount;
+    watchMinute.textContent = minuteCount;
+    watchSecond.textContent = secondCount;
+
+    stopWatch = setInterval(() => {
+        if (secondCount === 60){
+            minuteCount++
+            secondCount = 0;
+        }
+
+        if (minuteCount === 60){
+            hourCount++
+            minuteCount = 0;
+        }
+        watchHour.textContent = hourCount;
+        watchMinute.textContent = minuteCount;
+        watchSecond.textContent = ++secondCount
+    }, 1000)
+
+    console.log('watch');
+}
+
+function watchReset(){
+    hourCount = 0;
+    watchHour.textContent = hourCount;
+    minuteCount = 0;
+    watchMinute.textContent = minuteCount;
+    secondCount = 0;
+    watchSecond.textContent = secondCount;
+    clearInterval(stopWatch)
+    return
+}
+
+
+
  
 navContainer.addEventListener('click', (e) => {
 
@@ -120,12 +172,65 @@ navContainer.addEventListener('click', (e) => {
         second.classList.add('second')
         second.textContent = '0';
 
+        const controls = document.createElement('div');
+        controls.classList.add('icons')
+        const playIcon = icon('i', 'fa-solid' ,'fa-play');
+        const resetIcon = icon('i', 'fa-solid' ,'fa-rotate-right')
+        playIcon.addEventListener('click', watch);
+        resetIcon.addEventListener('click', watchReset);
 
         stopWatch.appendChild(hour)
         stopWatch.appendChild(minute)
         stopWatch.appendChild(second)
-        container.appendChild(stopWatch);
 
+        controls.appendChild(playIcon);
+        controls.appendChild(resetIcon);
+
+        container.appendChild(stopWatch);
+        container.appendChild(controls)
+
+
+        let hourCount = 0;
+        let minuteCount = 0;
+        let secondCount = 0
+
+        let stopWatchCounter;
+
+        function watch(){
+
+            hour.textContent =  hourCount;
+            minute.textContent = minuteCount;
+            second.textContent = secondCount;
+
+            stopWatchCounter = setInterval(() => {
+                if (secondCount === 59){
+                    minuteCount++
+                    secondCount = 0;
+                }
+
+                if (minuteCount === 60){
+                    hourCount++
+                    minuteCount = 0;
+                }
+                hour.textContent = hourCount;
+                minute.textContent = minuteCount;
+                second.textContent = ++secondCount
+            }, 1000)
+
+            console.log('watch');
+        }
+
+        function watchReset(){
+            hourCount = 0;
+            watchHour.textContent = hourCount;
+            minuteCount = 0;
+            watchMinute.textContent = minuteCount;
+            secondCount = 0;
+            watchSecond.textContent = secondCount;
+            clearInterval(stopWatch)
+            return
+        }
+       
     }else if (e.target === tabLink[2]){
           //get access to the container
           let container = document.querySelector('.container')
@@ -175,6 +280,7 @@ navContainer.addEventListener('click', (e) => {
         playIcon.addEventListener('click', countDown);
         pauseIcon.addEventListener('click', pauseTimer);
         resetIcon.addEventListener('click', resetTimer);
+
         controllersIcon.appendChild(playIcon)
         controllersIcon.appendChild(pauseIcon)
         controllersIcon.appendChild(resetIcon)
