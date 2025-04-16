@@ -202,7 +202,7 @@ navContainer.addEventListener('click', (e) => {
         let stopWatchCounter;
 
         function watch(){
-
+            playIcon.classList.add('disabled')
             hour.textContent =  hourCount;
             minute.textContent = minuteCount;
             second.textContent = secondCount;
@@ -226,13 +226,14 @@ navContainer.addEventListener('click', (e) => {
         }
 
         function watchReset(){
+            playIcon.classList.remove('disabled')
             hourCount = 0;
-            watchHour.textContent = hourCount;
+            hour.textContent = hourCount;
             minuteCount = 0;
-            watchMinute.textContent = minuteCount;
+            minute.textContent = minuteCount;
             secondCount = 0;
-            watchSecond.textContent = secondCount;
-            clearInterval(stopWatch)
+            second.textContent = secondCount;
+            clearInterval(stopWatchCounter)
             return
         }
        
