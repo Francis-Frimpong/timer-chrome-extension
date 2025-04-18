@@ -14,7 +14,7 @@ let timer;
         let minutes = minute.value 
         let seconds = second.value 
 
-        // figure out and fix the second counter bug
+        
         timer =  setInterval(() => {
             if (hours > 99 || minutes > 59 || seconds > 59) {
                 hours = 0;
@@ -46,10 +46,15 @@ let timer;
                 clearInterval(timer);
                 return
             }
-            
+
+            if (seconds == 0){
+                seconds = 60
+                second.value = seconds;
+                minutes--
+            }
+            --seconds
+            second.value = seconds
             minute.value = minutes
-            seconds--
-            second.value = seconds;
         }, 1000)
         
     }
@@ -66,6 +71,7 @@ let timer;
     }
 
     function pauseTimer(){
+        play.classList.remove('disabled');
         clearInterval(timer)
     }
 
@@ -304,67 +310,74 @@ navContainer.addEventListener('click', (e) => {
 
 
 
-        // let timer;
+        let timer;
     
-        // function countDown(){
-        //     play.classList.add('disabled');
-        //     let hours = hour.value
-        //     let minutes = minute.value 
-        //     let seconds = second.value 
+        function countDown(){
+            playIcon.classList.add('disabled');
+            let hours = hourInput.value
+            let minutes = minuteInput.value 
+            let seconds = secondInput.value 
             
-        //     timer =  setInterval(() => {
-        //         if (hours > 99 || minutes > 59 || seconds > 59) {
-        //             hours = 0;
-        //             hour.value = hours;
-        //             minutes = 0;
-        //             minute.value = minutes;
-        //             seconds = 0
-        //             second.value = seconds
-        //             clearInterval(timer);
-        //             return
-        //         }
+            timer =  setInterval(() => {
+                if (hours > 99 || minutes > 59 || seconds > 59) {
+                    hours = 0;
+                    hour.value = hours;
+                    minutes = 0;
+                    minute.value = minutes;
+                    seconds = 0
+                    second.value = seconds
+                    clearInterval(timer);
+                    return
+                }
 
-        //         if(hours > 0 && minutes == 0 && seconds == 0 ){
-        //             seconds = 60;
-        //             minutes = 59;
-        //             hours--
-        //             hour.value = hours;
-        //         } 
+                if(hours > 0 && minutes == 0 && seconds == 0 ){
+                    seconds = 60;
+                    minutes = 59;
+                    hours--
+                    hourInput.value = hours;
+                } 
                 
-        //         if (hours == 0 && minutes > 0 && seconds == 0){
-        //             seconds = 60;
-        //             minutes--
-        //             minute.value = minutes
-        //         }
+                if (hours == 0 && minutes > 0 && seconds == 0){
+                    seconds = 60;
+                    minutes--
+                    minuteInput.value = minutes
+                }
                 
-        //         if (hours == 0 && minutes == 0 && seconds == 0){
-        //             audio.loop = true;
-        //             audio.play();
-        //             clearInterval(timer);
-        //             return
-        //         }
+                if (hours == 0 && minutes == 0 && seconds == 0){
+                    audio.loop = true;
+                    audio.play();
+                    clearInterval(timer);
+                    return
+                }
+
+                if (seconds == 0){
+                    seconds = 60
+                    secondInput.value = seconds;
+                    minutes--
+                }
                 
-        //         minute.value = minutes
-        //         seconds--
-        //         second.value = seconds;
-        //     }, 1000)
+                --seconds
+                secondInput.value = seconds;
+                minuteInput.value = minutes
+            }, 1000)
             
-        // }
+        }
         
         
-        // function resetTimer(){
-        //     play.classList.remove('disabled');
-        //     hour.value = '0'
-        //     minute.value = '0'
-        //     second.value = '0'
-        //     audio.pause()
-        //     clearInterval(timer)
-        //     return
-        // }
+        function resetTimer(){
+            playIcon.classList.remove('disabled');
+            hourInput.value = '0'
+            minuteInput.value = '0'
+            secondInput.value = '0'
+            audio.pause()
+            clearInterval(timer)
+            return
+        }
 
-        // function pauseTimer(){
-        //     clearInterval(timer)
-        // }
+        function pauseTimer(){
+            playIcon.classList.remove('disabled');
+            clearInterval(timer)
+        }
 
 
 
