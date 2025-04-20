@@ -257,10 +257,17 @@ navContainer.addEventListener('click', (e) => {
           //create a new div element
           const alarm = document.createElement("div");
           alarm.classList.add('clock')
-  
+
+          const digitalWatch= document.createElement("div");
+          digitalWatch.classList.add('digiClock')
+
+          
+
+        alarm.appendChild(digitalWatch)
           container.appendChild(alarm);
 
           let timeCont = document.querySelector('.clock')
+          let digiClock = document.querySelector('.digiClock')
             const clock = setInterval(() => {
                 const time = new Date();
                 let hr = time.getHours();
@@ -278,7 +285,10 @@ navContainer.addEventListener('click', (e) => {
                     timeOfday = "pm";
                 }
 
-                timeCont.textContent =`${hr} : ${min} : ${sec} ${timeOfday}`;
+                digiClock.innerHTML =`
+                    <h2>${hr} : </h2> <h2> ${min} </h2>  <h2>: ${sec}</h2> <h4>${timeOfday}</h4>
+                
+                `;
             }, 1000)
 
     }
