@@ -255,15 +255,17 @@ navContainer.addEventListener('click', (e) => {
 
           container.innerHTML = ""; //clear or empty the container
           //create a new div element
-          const stopWatch = document.createElement("div");
-          stopWatch.classList.add('stopWatchContainer')
+          const alarm = document.createElement("div");
+          alarm.classList.add('clock')
   
-          stopWatch.innerHTML = `
-                  <h3 class="hour">0</h3>
-                  <h3 class="minute">0</h3>
-                  <h3 class="second">0</h3>
-          `;
-          container.appendChild(stopWatch);
+          container.appendChild(alarm);
+
+          let timeCont = document.querySelector('.clock')
+            const clock = setInterval(() => {
+                const time = new Date();
+                timeCont.textContent =`${time.getHours() - 12} : ${time.getMinutes()} : ${time.getSeconds()}`
+            }, 1000)
+
     }
     else {
           //get access to the container
@@ -398,8 +400,7 @@ pause.addEventListener('click', pauseTimer);
 
 // })
     
-
-// Things to tackle for the day
-//Figure out how to access or mentain functionlity when new html element are inserted
-// Read about DOMContentLoader to see whether it can help with the functionality issue.
-// Add styling to unstyled html element
+//Things to do tomorrow
+// Figure out the am and pm functionality
+// Figure out how to set and compere time
+//style it properly the digital clock properly
