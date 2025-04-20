@@ -280,10 +280,16 @@ navContainer.addEventListener('click', (e) => {
                 } else {
                     timeOfday = "PM";
                 }
-                
+
                 if(hr > 12){
                     hr = hr - 12;
                     
+                }
+
+                const AlarmHour = 3
+                const AlarmMinute = 35
+                if (hr === AlarmHour && min === AlarmMinute){
+                    audio.play()
                 }
 
 
