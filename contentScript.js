@@ -275,18 +275,20 @@ navContainer.addEventListener('click', (e) => {
                 let sec = time.getSeconds();
                 let timeOfday;
 
+                if (hr < 12){
+                    timeOfday = "AM";
+                } else {
+                    timeOfday = "PM";
+                }
+                
                 if(hr > 12){
-                    hr - 12;
+                    hr = hr - 12;
+                    
                 }
 
-                if (hr < 12){
-                    timeOfday = "am";
-                } else {
-                    timeOfday = "pm";
-                }
 
                 digiClock.innerHTML =`
-                    <h2>${hr} : </h2> <h2> ${min} </h2>  <h2>: ${sec}</h2> <h4>${timeOfday}</h4>
+                    <h2>${hr} : </h2>  <h2> ${min} </h2>  <h2> : ${sec}</h2> <h4>${timeOfday}</h4>
                 
                 `;
             }, 1000)
