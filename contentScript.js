@@ -263,7 +263,22 @@ navContainer.addEventListener('click', (e) => {
           let timeCont = document.querySelector('.clock')
             const clock = setInterval(() => {
                 const time = new Date();
-                timeCont.textContent =`${time.getHours() - 12} : ${time.getMinutes()} : ${time.getSeconds()}`
+                let hr = time.getHours();
+                let min = time.getMinutes();
+                let sec = time.getSeconds();
+                let timeOfday;
+
+                if(hr > 12){
+                    hr - 12;
+                }
+
+                if (hr < 12){
+                    timeOfday = "am";
+                } else {
+                    timeOfday = "pm";
+                }
+
+                timeCont.textContent =`${hr} : ${min} : ${sec} ${timeOfday}`;
             }, 1000)
 
     }
