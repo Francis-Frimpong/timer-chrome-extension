@@ -261,10 +261,25 @@ navContainer.addEventListener('click', (e) => {
           const digitalWatch= document.createElement("div");
           digitalWatch.classList.add('digiClock')
 
+          const alarmSet = document.createElement('div')
+          alarmSet.classList.add('alarmSettings')
+          
+          const setHour = document.createElement('input')
+          setHour.type = "number";
+          setHour.classList.add('setHour')
+          
+          const setMinute= document.createElement('input')
+          setMinute.type = "number";
+          setMinute.classList.add('setMinute')
+
+          alarmSet.appendChild(setHour);
+          alarmSet.appendChild(setMinute);
+
           
 
         alarm.appendChild(digitalWatch)
-          container.appendChild(alarm);
+        alarm.appendChild(alarmSet)
+        container.appendChild(alarm);
 
           let timeCont = document.querySelector('.clock')
           let digiClock = document.querySelector('.digiClock')
@@ -286,8 +301,8 @@ navContainer.addEventListener('click', (e) => {
                     
                 }
 
-                const AlarmHour = 3
-                const AlarmMinute = 35
+                const AlarmHour = 4
+                const AlarmMinute = 50
                 if (hr === AlarmHour && min === AlarmMinute){
                     audio.play()
                 }
@@ -436,4 +451,4 @@ pause.addEventListener('click', pauseTimer);
 //Things to do tomorrow
 // Figure out the am and pm functionality
 // Figure out how to set and compere time
-//style it properly the digital clock properly
+//style it properly the digital clock properly 

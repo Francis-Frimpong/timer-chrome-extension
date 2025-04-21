@@ -90,7 +90,7 @@ h4{
   
 
 .clock{
-    font-size: 2rem;
+    font-size: .7rem;
     font-weight: 700;
     text-align: center;
 }
@@ -100,10 +100,34 @@ h4{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 0;
 }
 
 .digiClock h4{
-    margin-left: .8em;
-    margin-top: 2.5em;
+    margin-left: .6em;
+    margin-top: 1.4em;
 }
 
+.alarmSettings{
+    display: flex;
+    justify-content: center;
+    margin-top: 6em;
+
+}
+.alarmSettings >input{
+    width: 60px;
+    height: 60px;
+    margin: 0 1em;
+    border-radius: 7px;
+    border:2px solid rgb(131, 131, 131);
+    outline: none;
+
+   
+}
+
+.setHour, .setMinute{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+}
