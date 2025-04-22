@@ -261,23 +261,26 @@ navContainer.addEventListener('click', (e) => {
           const digitalWatch= document.createElement("div");
           digitalWatch.classList.add('digiClock')
 
-          const alarmSet = document.createElement('div')
+          const alarmSet = document.createElement('form')
           alarmSet.classList.add('alarmSettings')
+          alarmSet.addEventListener('input',alarmClock)
           
           const setHour = document.createElement('input')
           setHour.type = "number";
           setHour.classList.add('setHour')
+
           
           const setMinute= document.createElement('input')
           setMinute.type = "number";
           setMinute.classList.add('setMinute')
-
-          const button = document.createElement('button');
-          button.classList.add('alarmBtn')
-          button.textContent = 'Set Alarm'
-          alarm.appendChild(button)
+          
+          const setTimeOfday = document.createElement('input')
+          setTimeOfday.type = "text";
+          setTimeOfday.classList.add('setTimeOfDay')
+         
           alarmSet.appendChild(setHour);
           alarmSet.appendChild(setMinute);
+          alarmSet.appendChild(setTimeOfday);
 
 
           
@@ -306,18 +309,34 @@ navContainer.addEventListener('click', (e) => {
                     
                 }
 
-                const AlarmHour = 4
-                const AlarmMinute = 50
-                if (hr === AlarmHour && min === AlarmMinute){
-                    audio.play()
-                }
 
+                const setHour = document.querySelector('.setHour').value;
+                const setMinute = document.querySelector('.setMinute').value;
+                const setTimeOfDay = document.querySelector('.setTimeOfDay').value;
 
+                alarmClock(setHour,setMinute,hr,min,setTimeOfDay,timeOfday)
+                
+                    
                 digiClock.innerHTML =`
                     <h2>${hr} : </h2>  <h2> ${min} </h2>  <h2> : ${sec}</h2> <h4>${timeOfday}</h4>
                 
                 `;
+                
             }, 1000)
+
+            
+    
+        function alarmClock(setHour, setMinute, hr, min, setTimeOfday, timeOfday){
+
+            const alarmHour = parseInt(setHour)
+            const alarmMinute = parseInt(setMinute)
+            if (hr === alarmHour && min === alarmMinute && timeOfday === setTimeOfday.toUpperCase()){
+                audio.play()
+                
+            }
+        }
+                        
+                
 
     }
     else {

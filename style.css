@@ -126,16 +126,9 @@ h4{
    
 }
 
-.setHour, .setMinute{
+.setHour, .setMinute, .setTimeOfDay{
     text-align: center;
     font-size: 2em;
     font-weight: 700;
 }
 
-
-.alarmBtn {
-    position: absolute;
-    bottom: 5em;
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
