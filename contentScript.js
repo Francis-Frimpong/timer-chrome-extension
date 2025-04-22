@@ -272,8 +272,13 @@ navContainer.addEventListener('click', (e) => {
           setMinute.type = "number";
           setMinute.classList.add('setMinute')
 
+          const button = document.createElement('button');
+          button.classList.add('alarmBtn')
+          button.textContent = 'Set Alarm'
+          alarm.appendChild(button)
           alarmSet.appendChild(setHour);
           alarmSet.appendChild(setMinute);
+
 
           
 

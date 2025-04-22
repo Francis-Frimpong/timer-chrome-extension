@@ -131,3 +131,11 @@ h4{
     font-size: 2em;
     font-weight: 700;
 }
+
+
+.alarmBtn {
+    position: absolute;
+    bottom: 5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
